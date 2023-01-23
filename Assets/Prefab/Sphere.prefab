@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5900819108231680524}
   - component: {fileID: 7915809074661183121}
   - component: {fileID: 3030570612143371349}
-  - component: {fileID: 7755243912695682193}
+  - component: {fileID: -5552076130497079958}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7755243912695682193
+--- !u!114 &-5552076130497079958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

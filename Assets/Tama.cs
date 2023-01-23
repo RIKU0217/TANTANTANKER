@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class Tama : MonoBehaviour
 {
@@ -18,18 +20,11 @@ public class Tama : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        
-        if (collision.gameObject.tag == "Tank")
-        {
-            // 衝突した相手オブジェクトを削除する
-            Destroy(collision.gameObject);
-            Debug.Log("衝突");
-        }
 
         if (collision.gameObject.tag == "Wall")
         {
             Debug.Log(tag);
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
     }
 }

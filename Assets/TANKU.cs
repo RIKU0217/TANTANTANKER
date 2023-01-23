@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+
 
 public class TANKU : MonoBehaviour
 {
@@ -9,16 +11,35 @@ public class TANKU : MonoBehaviour
     private Rigidbody rb;
     private float movementInputValue;
     private float turnInputValue;
+    PhotonView PV;
 
+    private void Awake()
+    {
+        PV = GetComponent<PhotonView>();
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        if (!PV.IsMine)
+        {
+            Destroy(GetComponentInChildren<Camera>().gameObject);
+            Destroy(GetComponent<Rigidbody>());
+        }
     }
 
     void Update()
     {
-        Move();
-        Turn();
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (PV.IsMine)
+        {
+            Turn();
+            Move();
+        }
     }
 
     // 前進・後退のメソッド
@@ -26,7 +47,7 @@ public class TANKU : MonoBehaviour
     {
         movementInputValue = Input.GetAxis("Vertical");
         Vector3 movement = movementInputValue * moveSpeed * transform.forward;
-        rb.AddForceAtPosition(movement,this.transform.position);
+        rb.AddForceAtPosition(movement, this.transform.position);
     }
 
     // 旋回のメソッド
@@ -38,4 +59,3 @@ public class TANKU : MonoBehaviour
         rb.MoveRotation(rb.rotation * turnRotation);
     }
 }
-
