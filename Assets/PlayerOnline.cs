@@ -1,25 +1,28 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
 
-public class TANKU : MonoBehaviour
+public class PlayerOnline : MonoBehaviour
 {
     public float moveSpeed;
     public float turnSpeed;
     private Rigidbody rb;
     private float movementInputValue;
     private float turnInputValue;
+    [SerializeField]
     PhotonView PV;
 
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        Debug.Log("本体"+PV);
     }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Debug.Log(rb);
 
         if (!PV.IsMine)
         {
@@ -39,7 +42,10 @@ public class TANKU : MonoBehaviour
         {
             Turn();
             Move();
-        }else{
+            Debug.Log("Turn()Move()");
+        }
+        else
+        {
             Debug.Log("操作対象がありません");
         }
     }
@@ -50,6 +56,7 @@ public class TANKU : MonoBehaviour
         movementInputValue = Input.GetAxis("Vertical");
         Vector3 movement = movementInputValue * moveSpeed * transform.forward;
         rb.AddForceAtPosition(movement, this.transform.position);
+        Debug.Log(movementInputValue);
     }
 
     // ����̃��\�b�h

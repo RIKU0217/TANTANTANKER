@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -704,7 +704,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377255955}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &773872810
 MonoBehaviour:
@@ -713,14 +713,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773872808}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99f14cbc535e1454791b31822bfa12b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 4137921730015536030, guid: 151c8425626761a4da3385e219e729f1, type: 3}
-  player: {fileID: 0}
-  speed: 1000
+  player: {fileID: 1377255952}
+  speed: 20
 --- !u!1 &876239211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,15 +1497,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377255955}
-  - component: {fileID: 1377255954}
   - component: {fileID: 1377255953}
+  - component: {fileID: 1377255956}
   m_Layer: 0
   m_Name: Tank (1)
   m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1377255953
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1522,20 +1522,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1377255954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377255952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab268818d5c62fd4f8f5e0ed8699c91f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 30
-  turnSpeed: 100
 --- !u!4 &1377255955
 Transform:
   m_ObjectHideFlags: 0
@@ -1550,11 +1536,25 @@ Transform:
   m_Children:
   - {fileID: 1335834230}
   - {fileID: 661710666}
-  - {fileID: 1823933033}
   - {fileID: 773872809}
+  - {fileID: 1823933033}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377255956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377255952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c748ebd05979d94f98ce0a79dd527be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  turnSpeed: 10
 --- !u!1 &1410651377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,7 +2036,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377255955}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!136 &1823933034
 CapsuleCollider:
