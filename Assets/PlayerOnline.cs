@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Photon.Pun;
+using System.Collections;
+using System.Collections.Generic;
 
 
 public class PlayerOnline : MonoBehaviour
@@ -50,7 +50,7 @@ public class PlayerOnline : MonoBehaviour
         }
     }
 
-    // �O�i�E��ނ̃��\�b�h
+    // 
     void Move()
     {
         movementInputValue = Input.GetAxis("Vertical");
@@ -59,7 +59,7 @@ public class PlayerOnline : MonoBehaviour
         Debug.Log(movementInputValue);
     }
 
-    // ����̃��\�b�h
+    // 
     void Turn()
     {
         turnInputValue = Input.GetAxis("Horizontal");

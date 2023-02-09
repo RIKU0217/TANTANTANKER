@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f97267e873477c439260de4f4dd9cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  networkCube: {fileID: 1003779389620454655, guid: ecfa94ac9d4394940ac5d6e58d33b366, type: 3}
+  networkCube: {fileID: 6988486343594299152, guid: dcbbe0214ef2ed64aa4d0f7ab52842c5, type: 3}
 --- !u!4 &1689623874
 Transform:
   m_ObjectHideFlags: 0

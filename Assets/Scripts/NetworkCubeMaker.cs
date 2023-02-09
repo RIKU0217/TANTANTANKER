@@ -10,7 +10,7 @@ public class NetworkCubeMaker : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("Cが押されました");
-            PhotonNetwork.Instantiate(networkCube.name, new Vector3(1,10,1), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate(networkCube.name, new Vector3(Random.Range(-50f,50f),15,Random.Range(-50f,50f)), Quaternion.identity, 0);
         }
     }
 }

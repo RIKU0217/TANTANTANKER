@@ -30,7 +30,7 @@ public class PhotonConnecter : MonoBehaviourPunCallbacks
     private void Connect()
     {
         Debug.Log("Photon Cloud に接続します。");
-        PhotonNetwork.ConnectUsingSettings();/サーバーに接続する
+        PhotonNetwork.ConnectUsingSettings();//サーバーに接続する
     }
 
     private void JoinRoom()
@@ -42,7 +42,7 @@ public class PhotonConnecter : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()//サーバーに接続したときに呼ばれるコールバック関数
     {
         Debug.Log("Photon Cloud に接続しました。");
-       // PhotonNetwork.JoinRandomRoom(); //ルームがすでに作られている場合はルームに入る  コールバック関数はOnJoinRandomFailed（）
+       // PhotonNetwork.JoinRandomRoom(); ルームがすでに作られている場合はルームに入る  コールバック関数はOnJoinRandomFailed（）
     }
 
     public override void OnJoinedRoom()
