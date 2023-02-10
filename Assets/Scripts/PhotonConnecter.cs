@@ -1,5 +1,5 @@
 using Photon.Pun;
-using Photon.Realtime;
+using Photon.Realtime;//Playerクラス？が使えない
 using UnityEngine;
 
 public class PhotonConnecter : MonoBehaviourPunCallbacks
@@ -33,25 +33,39 @@ public class PhotonConnecter : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();//サーバーに接続する
     }
 
-    private void JoinRoom()
-    {
-        Debug.Log($"{roomName}に参加します。");
-        PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions(), TypedLobby.Default);
-    }
-
     public override void OnConnectedToMaster()//サーバーに接続したときに呼ばれるコールバック関数
     {
         Debug.Log("Photon Cloud に接続しました。");
-       // PhotonNetwork.JoinRandomRoom(); ルームがすでに作られている場合はルームに入る  コールバック関数はOnJoinRandomFailed（）
     }
 
-    public override void OnJoinedRoom()
+    private void JoinRoom()
+    {
+        Debug.Log($"{roomName}に参加します。");
+        PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions(), TypedLobby.Default);//"roomname"という名前のルームに参加する。なければ作成して参加する
+    }
+
+    public override void OnJoinedRoom()//JoinorCreatRoom()が新規、既存のルームに参加することができた時呼ばれるコールバック関数
     {
         Debug.Log($"{roomName} に参加しました。");
     }
+/*ここ二つのコールバック関数はエラーで使えなった
+    public override void OnCreateRoom()//JoinorCreatRoom()で新規でルームを作成して参加したときのコールバック関数
+    {
+        Debug.Log($"{roomName} を作成しました");
+    }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
+    public override void OnJoinRoomFailed()//JoinorCreatRoom()でルームに参加できなかったときのコールバック関数
+    {
+        Debug.Log($"{roomName} を参加または作成に失敗しました");
+    }
+*/
+    public override void OnPlayerEnteredRoom(Player newPlayer)//ほかのPlayerが同じルームに入ってきたときに呼ばれるコールバック関数
     {
         Debug.Log($"{newPlayer.NickName} が入室しました。");
+    }
+
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)//ほかのPlayerが同じルームで出たときに呼ばれるコールバック関数
+    {
+        Debug.Log(otherPlayer+"が退出しました。ゲーム終了いたします");
     }
 }
