@@ -7,37 +7,25 @@ using Photon.Realtime;
 
 public class BallShot : MonoBehaviour
 {
-    public GameObject ballPrefab;
-    public GameObject player;
+    private GameObject ballet;
     public float speed;
-    [SerializeField]
-    PhotonView PV;
+
+    [SerializeField] private PhotonView PV;
+    [SerializeField] public GameObject player;
 
     private void Awake()
     {
-        PV = GetComponent<PhotonView>();//[serialzeField]‚Å‚Í‚¤‚Ü‚­‚¢‚Á‚½
-        Debug.Log("‹…"+PV);
-    }
-    private void Start()
-    {
-        player = this.gameObject;
+
+        ballet = this.gameObject;
+        PV = GetComponent<PhotonView>();//[serialzeField]ï¿½Å‚Í‚ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        Debug.Log(PV+"ãŒç¢ºä¿ã•ã‚Œã¾ã—ãŸ");
+        Debug.Log(ballet+"ãŒç¢ºä¿ã•ã‚Œã¾ã—ãŸ");
     }
 
     void Update()
     {
-        if (PV.IsMine)
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                GameObject ball = (GameObject)Instantiate(ballPrefab, transform.position, Quaternion.identity);
-                Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
-                ballRigidbody.AddForce(transform.forward * speed);
-            }
-        }
-        else {
-            Debug.Log("‘€ì‘ÎÛ‚ª‚ ‚è‚Ü‚¹‚ñ");  
-        }
-
+        Rigidbody RbBallet = ballet.GetComponent<Rigidbody>();
+        RbBallet.AddForce(PlayerOnline.childplayer.transform.forward * speed);
     }
 
      void OnCollisionEnter(Collision collision)
@@ -45,7 +33,6 @@ public class BallShot : MonoBehaviour
         if (collision.gameObject.name == "Tank" && collision.gameObject != player)
         {
             Debug.Log(collision);
-            // Õ“Ë‚µ‚½‘ŠèƒIƒuƒWƒFƒNƒg‚ğíœ‚·‚é
             PhotonNetwork.Destroy(collision.gameObject);
         }
 

@@ -13,9 +13,12 @@ GameObject:
   - component: {fileID: 5900819108231680524}
   - component: {fileID: 7915809074661183121}
   - component: {fileID: 3030570612143371349}
-  - component: {fileID: -5552076130497079958}
+  - component: {fileID: 1113204007078237880}
+  - component: {fileID: 4716997710081261393}
+  - component: {fileID: -5730416859115541561}
+  - component: {fileID: 2451483003406523570}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Ballet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +118,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-5552076130497079958
+--- !u!114 &1113204007078237880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +127,65 @@ MonoBehaviour:
   m_GameObject: {fileID: 4137921730015536030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23d5cc5c4c2860f4ba559971eba40ea6, type: 3}
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &4716997710081261393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4137921730015536030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &-5730416859115541561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4137921730015536030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f14cbc535e1454791b31822bfa12b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  PV: {fileID: 2451483003406523570}
+  player: {fileID: 6988486343594299152, guid: dcbbe0214ef2ed64aa4d0f7ab52842c5, type: 3}
+--- !u!114 &2451483003406523570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4137921730015536030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 1113204007078237880}
+  - {fileID: 4716997710081261393}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

@@ -12,6 +12,8 @@ public class TANKU : MonoBehaviour
     private float movementInputValue;
     private float turnInputValue;
     PhotonView PV;
+    [SerializeField] private PhotonView PVBall;
+    [SerializeField] private GameObject ballet;
 
     private void Awake()
     {
@@ -30,6 +32,16 @@ public class TANKU : MonoBehaviour
 
     void Update()
     {
+        if (PV.IsMine)
+        {
+            if (Input.GetKeyDown("space"))
+            {
+                PhotonNetwork.Instantiate(ballet.name, transform.position, Quaternion.identity,0);
+            }
+        }
+        else {
+            Debug.Log("����Ώۂ�����܂���");  
+        }
 
     }
 
@@ -40,7 +52,7 @@ public class TANKU : MonoBehaviour
             Turn();
             Move();
         }else{
-            Debug.Log("操作対象がありません");
+            
         }
     }
 

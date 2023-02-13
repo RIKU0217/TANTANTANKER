@@ -11,12 +11,15 @@ public class PlayerOnline : MonoBehaviour
     private Rigidbody rb;
     private float movementInputValue;
     private float turnInputValue;
-    [SerializeField]
-    PhotonView PV;
+    private GameObject childplayer;
+    private PhotonView PV;
+    [SerializeField] private PhotonView PVBall;
+    [SerializeField] private GameObject ballet;
 
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        childplayer = transform.GetChild(3).gameObject;
         Debug.Log("本体"+PV);
     }
     void Start()
@@ -33,7 +36,16 @@ public class PlayerOnline : MonoBehaviour
 
     void Update()
     {
-
+        if (PV.IsMine)
+        {
+            if (Input.GetKeyDown("space"))
+            {
+                PhotonNetwork.Instantiate(ballet.name, childplayer.transform.position, Quaternion.identity,0);
+            }
+        }
+        else {
+            Debug.Log("����Ώۂ�����܂���");  
+        }
     }
 
     private void FixedUpdate()
